@@ -54,7 +54,8 @@ void threadedfilebuf::open(const std::string& filename, unsigned int buffer_size
 
     file.open(filename.c_str(), ios::out | ios::binary);
     if(!file.is_open()) {
-        throw std::runtime_error("Unable to open '" + filename + "' for writing.");
+        //ASIF: throw std::runtime_error("Unable to open '" + filename + "' for writing.");
+		throw std::runtime_error("Unable to open for writing.");
     }
 
     mem_buffer = 0;

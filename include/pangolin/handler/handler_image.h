@@ -1,9 +1,17 @@
 #include <pangolin/display/viewport.h>
 #include <pangolin/handler/handler.h>
 #include <pangolin/plot/range.h>
+#include <cmath>
 
 namespace pangolin
 {
+
+template<typename T> bool isfinite(T arg)
+{
+    return arg == arg && 
+           arg != std::numeric_limits<T>::infinity() &&
+           arg != -std::numeric_limits<T>::infinity();
+}
 
 class ImageViewHandler : public Handler
 {
@@ -131,7 +139,7 @@ public:
 
         if(pressed) {
             if(key == '\r') {
-                if( sel.Area() != 0.0f && std::isfinite(sel.Area()) ) {
+                if( sel.Area() != 0.0f && pangolin::isfinite(sel.Area()) ) {
                     // Set view to equal selection
                     SetViewSmooth(sel);
 

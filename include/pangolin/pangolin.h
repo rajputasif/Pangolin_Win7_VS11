@@ -29,6 +29,7 @@
 #define PANGOLIN_H
 
 #include <pangolin/platform.h>
+#include <cmath>
 
 #ifdef BUILD_PANGOLIN_GUI
   #include <pangolin/gl/gl.h>

@@ -165,7 +165,7 @@ void VideoViewer(const std::string& input_uri, const std::string& output_uri)
             pangolin::ImageViewHandler& ivh = handlers[i];
 
             // round to pixels, clamp to image border.
-            const bool have_selection = std::isfinite(ivh.GetSelection().Area()) && std::abs(ivh.GetSelection().Area()) >= 4;
+            const bool have_selection = pangolin::isfinite(ivh.GetSelection().Area()) && std::abs(ivh.GetSelection().Area()) >= 4;
             pangolin::XYRangef froi = have_selection ? ivh.GetSelection() : ivh.GetViewToRender();
             pangolin::XYRangei iroi = froi.Cast<int>();
             iroi.Clamp(0, images[i].w-1, 0, img.h-1 );
